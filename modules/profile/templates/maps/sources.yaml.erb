@@ -87,13 +87,19 @@ gen:
     source: {ref: <%= @storage_id %>}
 <%- end -%>
 
+osm-localized:
+  uri: babel://
+  params:
+    source: {ref: <%= @storage_id %>}
+    tag: name
+
 # OSM PBF source
 osm-pbf:
   public: true
   formats: [pbf]
   uri: overzoom://
   params:
-    source: {ref: <%= @storage_id %>}
+    source: {ref: osm-localized}
     maxzoom: 19
   overrideInfo:
     attribution: 'Map data © <a href="http://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
